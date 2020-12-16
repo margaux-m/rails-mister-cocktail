@@ -1,0 +1,11 @@
+.cocktail-banner {
+  display: flex;
+  color: white;
+  align-items: center;
+  height: 300px;
+  box-shadow: 3px grey solid;
+  background-color: $green-dark;
+  h1 {
+    text-align: left;
+  }
+}
