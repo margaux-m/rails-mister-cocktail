@@ -7,13 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
+    <%= favicon_link_tag %>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="<%= @home_page ? 'homepage' : ''%>">
     <nav class="navbar">
-      <%= link_to image_tag("cocktail_logo.png", alt: "CocktailMaker"), root_path %>
+      <%= link_to image_tag("shaker-logo-2.svg", alt: "Shaker Logo"), root_path %>
       <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
     </nav>
     <%= yield %>
