@@ -21,3 +21,92 @@
     <%= yield %>
   </body>
 </html>
+
+<!--
+
+### 2 - Seed the ingredients
+
+**Our app will not allow users to create ingredients**.
+Instead, we will generate a static seed of ingredients to choose from.
+Write this seed, for example
+
+```ruby
+# db/seeds.rb
+Ingredient.create(name: "lemon")
+Ingredient.create(name: "ice")
+Ingredient.create(name: "mint leaves")
+```
+
+**Optional**: have fun and seed real ingredients using [this JSON list](http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list) (with `open-uri` and `json` ruby libs).
+
+### 3 - Routing, Controller, Views for Cocktails
+
+**Important**
+Don't use `rake` to code the applicative part. It's time to launch a `rails s` in your terminal and open a browser at [http://localhost:3000/](http://localhost:3000/). Always code in silo:
+
+- start with the **route**,
+- then start coding the **controller**,
+- start coding the **view** and refresh your browser.
+
+When your feature is done (and looks good), move on to the next one and repeat the process!
+
+When you think you're done with the **whole** challenge, use `rake` to make sure it satisfies the specs.
+
+**Features**
+Once again, you must have a precise idea of the features of your app in order to build your routes. Here is the list of features:
+
+- A user can see the list of cocktails
+
+```
+GET "cocktails"
+```
+
+- A user can see the details of a given cocktail, with the dose needed for each ingredient
+
+```
+GET "cocktails/42"
+```
+
+- A user can create a new cocktail
+
+```
+GET "cocktails/new"
+POST "cocktails"
+```
+
+### 4 - Routing, Controller, Views for Doses
+
+- A user can add a new dose (ingredient/description pair) to an existing cocktail
+- Checkout `simple_form` [docs](https://github.com/heartcombo/simple_form#associations) about `f.association` to easily create a select dropdown for our list of ingredients.
+
+```
+GET "cocktails/42/doses/new"
+POST "cocktails/42/doses"
+```
+
+- A user can delete a dose that belongs to an existing cocktail. How can we make a delete link again?
+
+```
+DELETE "doses/25"
+```
+
+Do we need an `IngredientsController`?
+
+### 6 - New dose form on the cocktail show page (Optional)
+
+Try to put the "New dose form" on the cocktail page, not on a separate page. What changes in the routes? And in the controllers?
+
+### 7 - Select2 on the ingredients dropdown (Optional)
+
+Let's try adding an npm package to our rails app! Let's follow the slides to see how to add `select2` to our ingredients dropdown.
+
+### 8 - Let's add reviews for these awesome cocktails! (Optional)
+
+![](https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/mister_cocktail_d1/show_2.png)
+
+### 9 - Going further
+
+- Adding a possibility to search cocktails and adding `typed.js` to the search input field.
+- Some nice [animate on scroll](https://michalsnik.github.io/aos/) animations for our list of cocktails as we scroll down the index.
+ -->
+
