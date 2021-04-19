@@ -1,18 +1,20 @@
 <div class="container">
   <h1>Cocktails</h1>
   <div class="cocktail-cards">
-    <div class="row">
-      <% @cocktails.each do |cocktail| %>
-        <div class="col-4 cocktail-card">
-          <% if cocktail.photo.attached? %>
-            <%= cl_image_tag cocktail.photo.key, height: 200, crop: :fit %>
-          <% else %>
-            <%= image_tag("cocktail-default-home.svg", alt: "Cocktail photo") %>
-          <% end %>
-          <h2><%= link_to cocktail.name, cocktail_path(cocktail), class: "stretched-link" %></h2>
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail) do %>
+        <div class="cocktail-card">
+          <div class="cocktail-card-image">
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag cocktail.photo.key, crop: :fit %>
+            <% else %>
+              <%= image_tag("cocktail-default-home.svg", alt: "Cocktail photo") %>
+            <% end %>
+          </div>
+          <h2><%= cocktail.name %></h2>
         </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 
