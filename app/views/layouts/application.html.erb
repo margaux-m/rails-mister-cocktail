@@ -15,13 +15,13 @@
 
   <body class="<%= @home_page ? 'homepage' : ''%>">
     <nav class="navbar">
-      <%= link_to image_tag("shaker-logo-2.svg", alt: "Shaker Logo"), root_path %>
+      <%= link_to image_tag("shaker-logo.svg", alt: "Shaker Logo"), root_path %>
       <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
     </nav>
     <%= yield %>
     <footer class="<%= @home_page ? 'homepage' : ''%>">
       <div>
-        <%= link_to image_tag("logo-footer-home.svg", alt: "Shaker Logo", class: "image-footer"), root_path %>
+        <%= link_to image_tag("logo-footer.svg", alt: "Shaker Logo", class: "image-footer"), root_path %>
         <h3>Shaker</h3>
         <p class="footer-text">Cocktail manager - 2021</p>
       </div>
