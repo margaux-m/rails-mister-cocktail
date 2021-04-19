@@ -10,5 +10,19 @@
 }
 
 .navbar img {
-  width: 150px;
+  width: 60px;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+#logo > a > h1 {
+  margin: 0;
+  padding-left: 10px;
+  font-size: 2rem;
 }
