@@ -4,6 +4,9 @@
     <div class="row">
       <% @cocktails.each do |cocktail| %>
         <div class="col-4 cocktail-card">
+          <% if cocktail.photo.attached? %>
+            <%= cl_image_tag cocktail.photo.key, height: 200, crop: :fit %>
+          <% end %>
           <h2><%= link_to cocktail.name, cocktail_path(cocktail), class: "stretched-link" %></h2>
         </div>
       <% end %>

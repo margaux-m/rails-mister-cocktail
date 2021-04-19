@@ -1,5 +1,7 @@
 <div class="container-cocktail">
-  <img class="image-cocktail" src="https://picsum.photos/200/300" alt="Cocktail picture">
+  <% if @cocktail.photo.attached? %>
+    <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "image-cocktail" %>
+  <% end %>
   <div class="cocktail-infos">
     <h1><%= @cocktail.name %></h1>
     <div class="container-ingredients">
