@@ -24,42 +24,7 @@
 
 <!--
 
-### 2 - Seed the ingredients
-
-**Our app will not allow users to create ingredients**.
-Instead, we will generate a static seed of ingredients to choose from.
-Write this seed, for example
-
-```ruby
-# db/seeds.rb
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-```
-
-**Optional**: have fun and seed real ingredients using [this JSON list](http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list) (with `open-uri` and `json` ruby libs).
-
-### 3 - Routing, Controller, Views for Cocktails
-
-**Important**
-Don't use `rake` to code the applicative part. It's time to launch a `rails s` in your terminal and open a browser at [http://localhost:3000/](http://localhost:3000/). Always code in silo:
-
-- start with the **route**,
-- then start coding the **controller**,
-- start coding the **view** and refresh your browser.
-
-When your feature is done (and looks good), move on to the next one and repeat the process!
-
-When you think you're done with the **whole** challenge, use `rake` to make sure it satisfies the specs.
-
 **Features**
-Once again, you must have a precise idea of the features of your app in order to build your routes. Here is the list of features:
-
-- A user can see the list of cocktails
-
-```
-GET "cocktails"
-```
 
 - A user can see the details of a given cocktail, with the dose needed for each ingredient
 
@@ -109,4 +74,75 @@ Let's try adding an npm package to our rails app! Let's follow the slides to see
 - Adding a possibility to search cocktails and adding `typed.js` to the search input field.
 - Some nice [animate on scroll](https://michalsnik.github.io/aos/) animations for our list of cocktails as we scroll down the index.
  -->
+<!--
+## Background & Objectives
 
+Today, we have **three goals**:
+
+1. Deploy Mister Cocktail on Heroku
+2. Add the Image Upload features
+3. There's a Rails Quiz at 2pm!
+
+### Setup
+
+We'll continue working on yesterday's code, so go back to your folder:
+
+```bash
+cd ~/code/<user.github_nickname>/rails-mister-cocktail
+```
+
+If you generated the rails app **without** the `--database` flag, we need to manually migrate this Rails app to Postgresql for heroku. You can check if the app is configured with postgresql if you have the `pg` gem in the gemfile.
+
+If you need to change the app to postgres, open your Gemfile, find the `sqlite` line. **Replace** it with:
+
+```ruby
+# Gemfile
+gem "pg"
+```
+
+Open the `config/database.yml` file, **delete** everything in it and replace it with:
+
+```yaml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: rails-mister-cocktail_development
+
+test:
+  <<: *default
+  database: rails-mister-cocktail_test
+```
+
+Open your terminal and run:
+
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### First Deployment
+
+Go back to the lecture and follow the step to deploy your app in production on Heroku. You will need to sign up to the service.
+
+### Image Upload
+
+The goal is to **add a picture** to the `Cocktail` model. The user should be able to
+upload an image that will then be displayed on the `index` view
+of `Cocktail` as a thumbnail. On the `show` view of `Cocktail`, the same
+image should be displayed, but bigger!
+
+Even though it's a simple app, try your best to make something beautiful using Bootstrap, a few nice font, and all your creativity 🎨😊🎨
+
+**Hint**: You can always build on top of [Le Wagon UI Kit](https://uikit.lewagon.com/)
+
+For an overview about all the image helpers rails provides (`image_tag`, `image_path`, `asset-url`, ...) check out the [cheatsheet](https://kitt.lewagon.com/knowledge/cheatsheets/rails_image_helpers) 👈
+
+### Cocktail Reviews (Optional)
+
+If you're done with the images, try to add an anonymous review system to the cocktails.
+ -->

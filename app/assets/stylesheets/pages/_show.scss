@@ -1,1 +1,9 @@
+.container-cocktail {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+}
 
+.cocktail-image {
+  object-fit: cover;
+  height: 100vh;
+}
