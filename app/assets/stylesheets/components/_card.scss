@@ -1,0 +1,15 @@
+.cocktail-card {
+  color: white;
+  border: white 2px solid;
+  border-radius: 4px;
+  margin: 15px;
+  padding: 15px;
+}
+
+.stretched-link {
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: $green-light;
+  }
+}

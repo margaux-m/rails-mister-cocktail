@@ -1,19 +1,8 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
+@import "card";
+@import "container";
 @import "footer";
+@import "form";
 @import "navbar";
-
-.container h1 {
-  color: white;
-  text-align: center;
-  margin: 50px;
-}
-
-.cocktail-card {
-  color: white;
-  border: white 2px solid;
-  border-radius: 4px;
-  margin: 15px;
-  padding: 15px;
-}

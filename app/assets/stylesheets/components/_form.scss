@@ -1,0 +1,17 @@
+.form-container {
+  margin: 0 auto;
+  width: 600px;
+  background-color: white;
+  border-radius: 4px;
+  padding: 35px;
+  margin-top: 60px;
+  min-height: 560px;
+  h1 {
+    color: $green-dark;
+    margin-top: 10px;
+  }
+}
+
+.form {
+  width: 100%;
+}

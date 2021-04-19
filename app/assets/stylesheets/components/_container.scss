@@ -1,0 +1,19 @@
+.container {
+  min-height: 560px;
+}
+
+.container h1 {
+  color: white;
+  text-align: center;
+  margin: 50px;
+}
+
+.container-cocktail {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-auto-rows: 1fr
+}
+
+.container-ingredients {
+  display: flex;
+}

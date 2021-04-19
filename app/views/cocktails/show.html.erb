@@ -1,21 +1,25 @@
 <div class="container-cocktail">
-  <img class="cocktail-image" src="https://picsum.photos/200/300" alt="Cocktail picture">
-  <div>
+  <img class="image-cocktail" src="https://picsum.photos/200/300" alt="Cocktail picture">
+  <div class="cocktail-infos">
     <h1><%= @cocktail.name %></h1>
-    <p>Ingredients:</p>
-    <ul>
-      <% @cocktail.doses.each do |dose| %>
-        <li><%= dose.ingredient.name %> - <%= dose.description %>
-            <%= link_to "(delete)",
-                    dose_path(dose),
-                    method: :delete,
-                    data: { confirm: "Are you sure you want to delete this ingredient?" } %>
-        </li>
-      <% end %>
-    </ul>
-    <div class="form-container">
-      <h1>Add an ingredient</h1>
+    <div class="container-ingredients">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+            <li><%= dose.ingredient.name %> - <%= dose.description %>
+                <%= link_to "(delete)",
+                        dose_path(dose),
+                        method: :delete,
+                        data: { confirm: "Are you sure you want to delete this ingredient?" } %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="form">
+        <h3>Add an ingredient</h3>
         <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
+      </div>
     </div>
   </div>
 </div>
