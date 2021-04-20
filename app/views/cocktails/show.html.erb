@@ -30,6 +30,21 @@
         <%= render 'doses/new', cocktail: @cocktail, dose: @dose %>
       </div>
     </div>
+    <hr />
+    <div class="container-reviews">
+      <div class="reviews">
+        <h3>Reviews</h3>
+        <% @cocktail.reviews.each do |review| %>
+          <p><%= review.content %></p>
+          <p>left on <%= review.created_at.strftime("%A %d %B %Y") %></p>
+          <p><%= review.rating %></p>
+        <% end %>
+      </div>
+      <div class="form">
+        <h3>Leave a review</h3>
+        <%= render 'reviews/new', cocktail: @cocktail, review: @review %>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -16,10 +16,14 @@
   height: 100%;
 }
 
-.ingredients {
+.ingredients, .reviews {
   width: 100%;
 }
 
 i.fa-edit {
   font-size: 1.4rem;
+}
+
+hr {
+  margin: 40px 0;
 }
