@@ -1,3 +1,11 @@
+i.fa-edit {
+  font-size: 1.4rem;
+}
+
+hr {
+  margin: 40px 0;
+}
+
 .cocktail-infos {
   padding: 30px 40px;
   h1 {
@@ -7,6 +15,13 @@
   }
   h3 {
     margin-bottom: 20px;
+  }
+  li {
+    font-size: 1.1rem;
+  }
+  ul {
+    margin: 16px 0;
+    padding: 0 20px;
   }
 }
 
@@ -18,12 +33,42 @@
 
 .ingredients, .reviews {
   width: 100%;
+  margin-right: 10px;
 }
 
-i.fa-edit {
-  font-size: 1.4rem;
+.ingredient-list, .review {
+  background-color: rgba(191, 247, 150, 0.4);
+  border-radius: 4px;
+  padding: 20px;
 }
 
-hr {
-  margin: 40px 0;
+.review-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+.review {
+  display: flex;
+  justify-content: space-between;
+  p {
+    margin: 0;
+    font-weight: 700;
+  }
+  p.review-date {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+  p.zero-review {
+    font-weight: 400;
+  }
+}
+
+.stars {
+  display: flex;
+}
+
+.strong {
+  font-weight: 700;
 }

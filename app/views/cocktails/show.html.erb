@@ -14,20 +14,22 @@
     <div class="container-ingredients">
       <div class="ingredients">
         <h3>Ingredients</h3>
-        <% if @cocktail.ingredients.blank? %>
-          <p>Add all the ingredients to make a delicious <%= @cocktail.name %> now.</p>
-        <% else %>
-          <ul>
-            <% @cocktail.doses.each do |dose| %>
-              <li><%= dose.description %> --- <%= dose.ingredient.name %>
-                  <%= link_to dose_path(dose), method: :delete,
-                          data: { confirm: "Are you sure you want to delete this ingredient?" } do %>
-                    <i class="fas fa-trash-alt"></i>
-                  <% end %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
+        <div class="ingredient-list">
+          <% if @cocktail.ingredients.blank? %>
+            <p>Add all the ingredients to make a delicious <%= @cocktail.name %> now.</p>
+          <% else %>
+            <ul>
+              <% @cocktail.doses.each do |dose| %>
+                <li><%= dose.description %> --- <span class="strong"><%= dose.ingredient.name %></span>
+                    <%= link_to dose_path(dose), method: :delete,
+                            data: { confirm: "Are you sure you want to delete this ingredient?" } do %>
+                      <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
       </div>
       <div class="form">
         <h3>Add an ingredient</h3>
@@ -38,19 +40,27 @@
     <div class="container-reviews">
       <div class="reviews" id="reviews">
         <h3>Reviews</h3>
-        <% if @cocktail.reviews.blank? %>
-          <p>No review yet: be the first to leave a review!</p>
-        <% else %>
-          <% @restaurant.reviews.each do |review| %>
-            <div id="review-<%= review.id %>">
-              <% @cocktail.reviews.each do |review| %>
-                <p><%= review.content %></p>
-                <p>left on <%= review.created_at.strftime("%A %d %B %Y") %></p>
-                <p><%= review.rating %></p>
-              <% end %>
+        <div class="review-list">
+          <% if @cocktail.reviews.blank? %>
+            <div class="review">
+              <p class="zero-review">No review yet: be the first to leave a review!</p>
             </div>
+          <% else %>
+            <% @cocktail.reviews.each do |review| %>
+              <div id="review-<%= review.id %>" class="review">
+                <div>
+                  <p><%= review.content %></p>
+                  <p class="review-date" >left on <%= review.created_at.strftime("%A %d %B %Y") %></p>
+                </div>
+                <div class="stars">
+                  <% review.rating.times do |star| %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
       <div class="form">
         <h3>Leave a review</h3>
