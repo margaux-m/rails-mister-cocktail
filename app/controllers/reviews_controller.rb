@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @cocktail = Cocktail.find(params[:cocktail_id])
     @review.cocktail = @cocktail
     if @review.save
-      redirect_to cocktail_path(@cocktail)
+      redirect_to cocktail_path(@cocktail, anchor: "review-#{@review.id}")
     else
       flash[:alert] = 'Something went wrong. Please submit your review again.'
       render "cocktails/show"

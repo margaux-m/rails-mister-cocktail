@@ -1,4 +1,4 @@
-<%= simple_form_for [cocktail, review] do |f| %>
+<%= simple_form_for([cocktail, review], remote: true) do |f| %>
   <%= f.input :rating, required: true, collection: (1..5).to_a, label: "Rate the cocktail" %>
   <%= f.input :content %>
   <%= f.button :submit, 'Send your review', class: "btn btn-primary" %>
