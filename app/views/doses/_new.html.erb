@@ -1,5 +1,8 @@
 <%= simple_form_for [cocktail, dose] do |f| %>
-  <%= f.association :ingredient, required: true, input_html: { class: 'select2' } %>
+  <%= f.association :ingredient,
+                    required: true,
+                    input_html: { class: 'select2' },
+                    collection: Ingredient.order('name ASC') %>
   <%= f.input :description, required: true %>
   <%= f.button :submit, 'Add ingredient', class: "btn btn-primary" %>
 <% end %>
