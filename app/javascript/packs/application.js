@@ -10,6 +10,13 @@ require("channels")
 
 import 'bootstrap';
 import { initSelect2 } from '../components/init_select2';
+import { initStarRating } from '../plugins/init_star_rating';
+
+$(function() {
+  $('#review_rating').barrating({
+    theme: 'css-stars'
+  });
+});
 
 document.addEventListener("turbolinks:load", function() {
   initSelect2();
