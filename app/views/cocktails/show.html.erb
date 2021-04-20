@@ -5,7 +5,12 @@
       <%= image_tag("cocktail-default.svg", alt: "Cocktail photo", class: "image-cocktail") %>
   <% end %>
   <div class="cocktail-infos">
-    <h1><%= @cocktail.name %></h1>
+    <h1>
+      <%= @cocktail.name %>
+      <%= link_to edit_cocktail_path do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+    </h1>
     <div class="container-ingredients">
       <div class="ingredients">
         <h3>Ingredients</h3>

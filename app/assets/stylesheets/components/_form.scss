@@ -21,6 +21,14 @@
   margin-top: 30px;
 }
 
+.btn-outline {
+  border: 1px solid $green-dark;
+  margin-left: 10px;
+  &:hover {
+    background-color: #ced4da;
+  }
+}
+
 input::-webkit-file-upload-button {
   background-color: white;
   border: 1px solid #ced4da;
