@@ -8,8 +8,8 @@ class Cocktail < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :pg_search,
+                  against: [:name],
                   associated_against: {
-                    cocktail: [:name],
                     ingredient: [:name]
                   },
                   using: {
