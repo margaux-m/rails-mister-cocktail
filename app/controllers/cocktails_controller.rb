@@ -3,7 +3,18 @@ class CocktailsController < ApplicationController
 
   def index
     @home_page = true
-    @cocktails = Cocktail.all
+
+    if params[:query].present?
+      sql_query = " \
+        cocktails.name ILIKE :query \
+        OR ingredients.name ILIKE :query \
+      "
+      @cocktails = Cocktail.joins(:ingredients).where(sql_query, query: "%#{params[:query]}%")
+      @placeholder = params[:query]
+    else
+      @cocktails = Cocktail.all
+      @placeholder = 'Search for a cocktail'
+    end
   end
 
   def show

@@ -5,4 +5,14 @@ class Cocktail < ApplicationRecord
   has_one_attached :photo
 
   validates :name, presence: true, uniqueness: true
+
+  include PgSearch::Model
+  pg_search_scope :pg_search,
+                  against: [:name],
+                  associated_against: {
+                    ingredient: [:name]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

@@ -21,7 +21,22 @@
           <h1>Shaker</h1>
         </a>
       </div>
-      <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+      <div class="menu">
+        <%= form_tag cocktails_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search for a cocktail"
+          %>
+          <%= link_to cocktails_path, class: "btn", id: "reset-button" do %>
+              <i class="fas fa-times-circle"></i>
+          <% end %>
+          <button class='btn btn-primary' id="submit-button" type="submit" >
+            <i class="fas fa-search"></i>
+          </button>
+        <% end %>
+        <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary" %>
+      </div>
     </nav>
     <%= yield %>
     <footer class="<%= @home_page ? 'homepage' : ''%>">
