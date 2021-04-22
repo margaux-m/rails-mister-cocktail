@@ -7,11 +7,8 @@ class Cocktail < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   include PgSearch::Model
-  pg_search_scope :pg_search,
+  pg_search_scope :cocktail_search,
                   against: [:name],
-                  associated_against: {
-                    ingredient: [:name]
-                  },
                   using: {
                     tsearch: { prefix: true }
                   }

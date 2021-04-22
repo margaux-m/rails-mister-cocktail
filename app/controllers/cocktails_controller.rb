@@ -5,13 +5,7 @@ class CocktailsController < ApplicationController
     @home_page = true
 
     if params[:query].present?
-      sql_query = " \
-        cocktails.name ILIKE :query \
-        OR ingredients.name ILIKE :query \
-        LIMIT 1 \
-      "
-      @cocktails = Cocktail.joins(:ingredients).where(sql_query, query: "%#{params[:query]}%")
-      # @cocktails = Cocktail.pg_search(params[:query])
+      @cocktails = Cocktail.cocktail_search(params[:query])
       @placeholder = params[:query]
     else
       @cocktails = Cocktail.all
