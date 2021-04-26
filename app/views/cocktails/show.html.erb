@@ -1,9 +1,5 @@
 <div class="container-cocktail">
-  <% if @cocktail.photo.attached? %>
-    <%= cl_image_tag @cocktail.photo.key, crop: :fill, class: "image-cocktail" %>
-  <% else %>
-      <%= image_tag("cocktail-default.svg", alt: "Cocktail photo", class: "image-cocktail") %>
-  <% end %>
+    <%= cl_image_tag @cocktail.photo.key, crop: :fill, alt: "Cocktail photo", class: "image-cocktail" %>
   <div class="cocktail-infos">
     <h1>
       <%= @cocktail.name %>
