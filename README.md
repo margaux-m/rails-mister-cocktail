@@ -10,6 +10,8 @@ The available ingredients to choose for the recipes were seeded from an API endp
 to dynamically filter the results from that list of ingredients and Cloudinary to allow
 users to upload an image for each cocktail recipe.
 
+[View app here](https://shaker.herokuapp.com/cocktails/)
+
 ![Shaker App](/app/assets/images/shaker-cover.png "Shaker App")
 ![Shaker App](/app/assets/images/shaker-home.png "Shaker App")
 ![Shaker App](/app/assets/images/shaker-cocktail.png "Shaker App")
